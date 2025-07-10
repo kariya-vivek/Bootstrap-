@@ -1,0 +1,110 @@
+//practicle 10
+try
+{
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/vk","root","");
+	Sccaner sc=new Sccaner(System.in);
+	System.out.print("enter your id");
+	int eno=sc.nextint();
+	String p10="select * from emp where empno=?";
+	PreparedStatment pst=con.preparedStatment(p10);
+	pst.setInt(1,eno);
+	ResultSet rs=pst.executeQuery();
+	while(rs.next())
+	{
+		System.out.println("empno:"+rs.getInt(1));
+		System.out.println("empnm:"+rs.getString(2));
+		System.out.println("designation:"+rs.getString(3));
+		System.out.println("city:"+rs.getString(4));
+		System.out.println("salary:"+rs.getInt(5));
+		System.out.println("department:"+rs.getString(6));
+	}
+	//practicle 11
+	Sccaner sc=new Sccaner(System.in);
+	System.out.print("enter department");
+	String dp=sc.next();
+	String p11="select empnm,designation from emp where department=?";
+	PreparedStatment pst=con.preparedStatment(p11);
+	pst.setString(1,dp);
+	ResultSet rs=pst.executeQuery();
+	while(rs.next())
+	{
+		System.out.println("empnm:"+rs.getString("empnm"));
+		System.out.println("designation:"+rs.getString("designation"));
+	}
+	
+	//practicle 12
+	Sccaner sc=new Sccaner(System.in);
+	System.out.print("enter name");
+	String nm=sc.nextString();
+	
+	System.out.print("enter designation");
+	String des=sc.nextString();
+	
+	System.out.print("enter city");
+	String City=sc.nextString();
+	
+	System.out.print("enter salary");
+	int sal=sc.nextInt();
+	
+	System.out.print("enter department");
+	String dp=sc.nextString();
+	
+	String p12="insert into emp (empnm,designation,city,salary,department) values(?,?,?,?,?)";
+	
+	PreparedStatment pst=con.preparedStatment(p10);
+	
+	pst.setString(1,nm);
+	pst.setString(2,des);
+	pst.setString(3,City);
+	pst.setInt(4,sal);
+	pst.setString(5,dp);
+	pst.executeUpdate();
+	
+	//practicle 13
+	Sccaner sc=new Sccaner(System.in);
+	System.out.print("enter name");
+	String nm=sc.nextString();
+	
+	System.out.print("enter designation");
+	String des=sc.nextString();
+	
+	System.out.print("enter city");
+	String City=sc.nextString();
+	
+	System.out.print("enter salary");
+	int sal=sc.nextInt();
+	
+	System.out.print("enter department");
+	String dp=sc.nextString();
+	
+	System.out.print("enter your id");
+	int i=sc.nextInt();
+	
+	String p13="update emp set empnm=?,designation=?,city=?,salary=?,department=? where id=?";
+	
+	PreparedStatment pst=con.preparedStatment(p10);
+	
+	pst.setString(1,nm);
+	pst.setString(2,des);
+	pst.setString(3,City);
+	pst.setInt(4,sal);
+	pst.setString(5,dp);
+	pst.setInt(6,i);
+	
+	pst.executeUpdate();
+	
+	//practicle14
+	Sccaner sc=new Sccaner(System.in);
+	System.out.print("enter your empno");
+	int eno=sc.nextint();
+	String p14="delete from emp where empno=?";
+	PreparedStatment pst=con.preparedStatment(p14);
+	pst.setInt(1,eno);
+	pst.executeUpdate();
+	
+}
+catch(Exception e)
+{
+	System.out.println("soory"+e);
+}
