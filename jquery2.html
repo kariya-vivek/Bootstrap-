@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>jquery second</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="home">welcome to home page</div>
+		<script>
+		$(document).ready(function (){
+		$("#home").click(function()
+		{
+			//$(this).html("<h1>welcome to new</h1>");
+			//$(this).text("welcome to new");
+			$(this).css({"color" : "red","font-size" : "50px"});
+		});
+		});
+		</script>
+	</body>
+</html>
