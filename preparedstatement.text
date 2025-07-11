@@ -3,11 +3,11 @@ try
 {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/vk","root","");
-	Sccaner sc=new Sccaner(System.in);
+	Scanner sc=new Scanner(System.in);
 	System.out.print("enter your id");
 	int eno=sc.nextint();
 	String p10="select * from emp where empno=?";
-	PreparedStatment pst=con.preparedStatment(p10);
+	PreparedStatment pst=con.PreparedStatment(p10);
 	pst.setInt(1,eno);
 	ResultSet rs=pst.executeQuery();
 	while(rs.next())
@@ -20,21 +20,21 @@ try
 		System.out.println("department:"+rs.getString(6));
 	}
 	//practicle 11
-	Sccaner sc=new Sccaner(System.in);
+	/*Scanner sc=new Scanner(System.in);
 	System.out.print("enter department");
 	String dp=sc.next();
 	String p11="select empnm,designation from emp where department=?";
-	PreparedStatment pst=con.preparedStatment(p11);
+	PreparedStatment pst=con.PreparedStatment(p11);
 	pst.setString(1,dp);
 	ResultSet rs=pst.executeQuery();
 	while(rs.next())
 	{
 		System.out.println("empnm:"+rs.getString("empnm"));
 		System.out.println("designation:"+rs.getString("designation"));
-	}
+	}*/
 	
 	//practicle 12
-	Sccaner sc=new Sccaner(System.in);
+	/*Scanner sc=new Scanner(System.in);
 	System.out.print("enter name");
 	String nm=sc.nextString();
 	
@@ -52,17 +52,17 @@ try
 	
 	String p12="insert into emp (empnm,designation,city,salary,department) values(?,?,?,?,?)";
 	
-	PreparedStatment pst=con.preparedStatment(p10);
+	PreparedStatment pst=con.PreparedStatment(p12);
 	
 	pst.setString(1,nm);
 	pst.setString(2,des);
 	pst.setString(3,City);
 	pst.setInt(4,sal);
 	pst.setString(5,dp);
-	pst.executeUpdate();
+	pst.executeUpdate();*/
 	
 	//practicle 13
-	Sccaner sc=new Sccaner(System.in);
+	/*Scanner sc=new Scanner(System.in);
 	System.out.print("enter name");
 	String nm=sc.nextString();
 	
@@ -83,7 +83,7 @@ try
 	
 	String p13="update emp set empnm=?,designation=?,city=?,salary=?,department=? where id=?";
 	
-	PreparedStatment pst=con.preparedStatment(p10);
+	PreparedStatment pst=con.PreparedStatment(p13);
 	
 	pst.setString(1,nm);
 	pst.setString(2,des);
@@ -92,16 +92,16 @@ try
 	pst.setString(5,dp);
 	pst.setInt(6,i);
 	
-	pst.executeUpdate();
+	pst.executeUpdate();*/
 	
 	//practicle14
-	Sccaner sc=new Sccaner(System.in);
+	/*Scanner sc=new Scanner(System.in);
 	System.out.print("enter your empno");
 	int eno=sc.nextint();
 	String p14="delete from emp where empno=?";
-	PreparedStatment pst=con.preparedStatment(p14);
+	PreparedStatment pst=con.PreparedStatment(p14);
 	pst.setInt(1,eno);
-	pst.executeUpdate();
+	pst.executeUpdate();*/
 	
 }
 catch(Exception e)
