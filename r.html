@@ -1,0 +1,267 @@
+<?php
+// PHP logic to handle form submission (backend processing)
+
+$message = '';
+$message_class = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // 1. Get form data
+    $store_name = $_POST['store_name'] ?? '';
+    $owner_name = $_POST['owner_name'] ?? '';
+    $owner_email = $_POST['owner_email'] ?? '';
+    
+    // Basic validation
+    if (empty($store_name) || empty($owner_name) || empty($owner_email)) {
+        $message = "Error: All fields are required.";
+        $message_class = "error";
+    } else {
+        // 2. Handle image upload (basic example)
+        $target_dir = "uploads/";
+        $uploaded_image_name = '';
+        
+        if (isset($_FILES["store_image"]) && $_FILES["store_image"]["error"] == UPLOAD_ERR_OK) {
+            $image_file = $_FILES["store_image"];
+            $image_basename = basename($image_file["name"]);
+            $target_file = $target_dir . $image_basename;
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            // Check if directory exists, if not, create it (requires server permissions)
+            if (!is_dir($target_dir)) {
+                mkdir($target_dir, 0777, true);
+            }
+
+            // Move the uploaded file
+            if (move_uploaded_file($image_file["tmp_name"], $target_file)) {
+                $uploaded_image_name = $image_basename;
+            } else {
+                $message .= "Error uploading the image. ";
+                $message_class = "error";
+            }
+        }
+        
+        // 3. Process the data (e.g., save to database, send confirmation email)
+        // In a real application, you would insert $store_name, $owner_name, $owner_email, and $uploaded_image_name into a database.
+        
+        if ($message_class !== "error") {
+            $message = "Store '" . htmlspecialchars($store_name) . "' created successfully! Image: " . ($uploaded_image_name ? $uploaded_image_name : 'No image uploaded') . ".";
+            $message_class = "success";
+            
+            // Clear inputs after successful submission (optional)
+            $store_name = $owner_name = $owner_email = '';
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Online Store</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #007BFF; /* Blue for action */
+            --secondary-color: #6C757D; /* Grey for text */
+            --bg-light: #f4f7fa; /* Light background */
+            --bg-white: #ffffff; /* Form background */
+            --border-color: #dee2e6; /* Border color */
+            --success-color: #28a745; /* Green for success */
+            --error-color: #dc3545; /* Red for error */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .form-container {
+            background-color: var(--bg-white);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .form-block {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        /* Styling for the file input (upload image block) */
+        input[type="file"] {
+            padding: 12px 10px;
+            background-color: var(--bg-light);
+            cursor: pointer;
+            border-style: dashed;
+        }
+        
+        .image-upload-block {
+            padding: 20px;
+            border: 2px dashed var(--primary-color);
+            border-radius: 12px;
+            text-align: center;
+            background-color: #eaf5ff;
+        }
+        
+        .image-upload-block label {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        /* Message block */
+        .simple-message {
+            text-align: center;
+            font-style: italic;
+            color: var(--secondary-color);
+            margin: 35px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .simple-message p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* PHP Status Messages */
+        .status-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .status-message.success {
+            background-color: #d4edda;
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }
+
+        .status-message.error {
+            background-color: #f8d7da;
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Create Your Craftzon Store</h1>
+
+    <?php if ($message): ?>
+        <div class="status-message <?php echo $message_class; ?>">
+            <?php echo $message; ?>
+        </div>
+    <?php endif; ?>
+
+    <form action="store_creation_form.php" method="POST" enctype="multipart/form-data">
+        
+        <div class="form-block image-upload-block">
+            <label for="store_image">Upload Store Logo or Banner</label>
+            <input type="file" id="store_image" name="store_image" accept="image/*">
+            <small>Accepted formats: JPG, PNG, GIF</small>
+        </div>
+
+        <div class="form-block">
+            <label for="store_name">Store Name</label>
+            <input type="text" id="store_name" name="store_name" placeholder="E.g., My Awesome Shop" required 
+                   value="store name">
+        </div>
+
+        <div class="form-block">
+            <label for="owner_name">Store Owner Name</label>
+            <input type="text" id="owner_name" name="owner_name" placeholder="E.g., John Doe" required
+                   value="owner name">
+        </div>
+
+        <div class="form-block">
+            <label for="owner_email">Owner Email ID</label>
+            <input type="email" id="owner_email" name="owner_email" placeholder="E.g., contact@example.com" required
+                   value="@email">
+        </div>
+
+        <div class="simple-message">
+            <p>By tapping create store you agree to craftzon terms of service.changes made to your name and store profile picture are visible only on craftzon and not other</p>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Store</button>
+
+    </form>
+</div>
+</body>
+</html>
