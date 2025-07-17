@@ -1,0 +1,53 @@
+		<title>task 1</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<button id="hmbtn">home</button>
+		<button id="newbtn">new</button>
+		<div id="homep" style="display:none;">welcome to home page</div>
+		<div id="newp" style="display:none">welcome to new category page</div>
+		<div id="login" style="text-align:right">login</div>
+		<div id="logindiv" style="display:none;height:50%;width:100%;border:2px solid black">
+		<input type="button" value="close" id="clsbtn">
+		<input type="text" placeholder="ent name">
+		<input type="text" placeholder="password"></div>
+		<script>
+		/*$(document).ready(function (){
+		$("#home").click(function()
+		{
+			//$(this).html("<h1>welcome to new</h1>");
+			//$(this).text("welcome to new");
+			$(this).css({"color" : "red","font-size" : "50px"});
+		});
+		});*/
+		
+		$(document).ready(function(){
+		
+		$("#newbtn").click(function(){
+		 //$("#newp").toggle();
+    $("#newp").fadeIn();
+     $("#newp").fadeOut();
+		});
+		
+		$("#hmbtn").click(function(){
+		//$("#homep").toggle();
+		$("#homep").fadeIn();
+	 	$("#homep").fadeOut();
+		
+		});
+		
+		$("#login").click(function(){
+	//	$("#logindiv").show();
+	  //$("#logindiv").slideDown();
+	  	$("#logindiv").slideToggle();
+		});
+		
+		$("#clsbtn").click(function(){
+	//	$("#logindiv").hide();
+		//$("#logindiv").slideUp();
+		});
+		
+		});
+		</script>
+	</body>
+</html>
