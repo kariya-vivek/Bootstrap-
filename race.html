@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Administrator Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .store-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid #ddd;
+        }
+        .store-info h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #0056b3;
+        }
+        .store-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .store-profile-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        .buttons-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .admin-button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* For anchor tags if used for navigation */
+            display: inline-block; /* Ensure padding works correctly */
+        }
+        .admin-button:hover {
+            background-color: #0056b3;
+        }
+        .products-list-section h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .product-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+        }
+        .product-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .product-details {
+            flex-grow: 1;
+        }
+        .product-details h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        .product-details p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/80/007bff/FFFFFF?text=Logo" alt="Store Logo" class="store-logo">
+            <div class="store-info">
+                <h1>My Awesome Store</h1>
+                <p>Owner: John Doe</p>
+                <p>Email: john.doe@example.com</p>
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <h2>Store Profile Overview</h2>
+            <img src="https://via.placeholder.com/600x300/e0e0e0/555555?text=Store+Profile+Image" alt="Store Profile Image" class="store-profile-image">
+            <p style="margin-top: 15px; color: #555;">This is a visual representation of your store's main profile image.</p>
+        </div>
+
+        <div class="buttons-section">
+            <button class="admin-button" onclick="location.href='#addProduct'">Add New Product</button>
+            <button class="admin-button" onclick="location.href='#addStock'">Add Stock to Inventory</button>
+            <button class="admin-button" onclick="location.href='#editDetails'">Edit Store Details</button>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+        <div class="products-list-section">
+            <h2>All Listed Products</h2>
+            
+            <div class="product-item">
+                <img src="https://via.placeholder.com/80/ADD8E6/000000?text=Product1" alt="Product Image 1">
+                <div class="product-details">
+                    <h3>Super Widget Pro</h3>
+                    <p>SKU: WIDGET001 | Price: $29.99 | Stock: 150 units</p>
+                    <p>A high-performance widget designed for all your daily needs.</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="https://via.placeholder.com/80/90EE90/000000?text=Product2" alt="Product Image 2">
+                <div class="product-details">
+                    <h3>Eco-Friendly Gadget</h3>
+                    <p>SKU: ECOGAD005 | Price: $49.99 | Stock: 75 units</p>
+                    <p>Innovate with our latest eco-friendly gadget, perfect for sustainable living.</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="https://via.placeholder.com/80/FFB6C1/000000?text=Product3" alt="Product Image 3">
+                <div class="product-details">
+                    <h3>Smart Home Hub</h3>
+                    <p>SKU: SMARTHUB010 | Price: $129.99 | Stock: 30 units</p>
+                    <p>Connect all your smart devices with our intuitive home hub.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; color: #777;">(More products would be listed here dynamically)</p>
+        </div>
+    </div>
+</body>
+</html>
