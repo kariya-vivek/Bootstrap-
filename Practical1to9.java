@@ -64,8 +64,8 @@ public class Practical1to9 {
              }*/
             
             //practicle 5
-            /*String p2="select * from emp1 where empnm like 'a%'";
-            ResultSet rs=st.executeQuery(p2);
+            /*String p5="select * from emp1 where empnm like 'a%'";
+            ResultSet rs=st.executeQuery(p5);
               System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
 
               while(rs.next())
@@ -75,7 +75,7 @@ public class Practical1to9 {
 	
             //practicle 6
             /*String p6="select * from emp1 where designation like'%manager'";
-            ResultSet rs=st.executeQuery(p2);
+            ResultSet rs=st.executeQuery(p6);
               System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
 
               while(rs.next())
@@ -92,8 +92,8 @@ public class Practical1to9 {
             }*/
 	
             //practicle 8
-          /*select *from emp where salary=(select MAX(salary) from emp);
-            ResultSet rs=st.executeQuery(p2);
+          /*String p8="select *from emp where salary=(select MAX(salary) from emp)";
+            ResultSet rs=st.executeQuery(p8);
               System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
 
               while(rs.next())
@@ -103,7 +103,7 @@ public class Practical1to9 {
 	
             //practicle 9
             String p9="select * from emp1 order by empnm";
-            ResultSet rs=st.executeQuery(p2);
+            ResultSet rs=st.executeQuery(p9);
               System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
 
               while(rs.next())
