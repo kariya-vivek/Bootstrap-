@@ -33,15 +33,12 @@ public class Practical10to14 {
             PreparedStatement pst=con.prepareStatement(p10);
             pst.setInt(1,eno);
             ResultSet rs=pst.executeQuery();
-            while(rs.next())
-            {
-		System.out.println("empno:"+rs.getInt(1));
-		System.out.println("empnm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }*/
+            System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
             //practicale 11
             /*Scanner sc=new Scanner(System.in);
             System.out.print("enter department=");
