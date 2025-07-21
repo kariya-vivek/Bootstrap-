@@ -92,7 +92,7 @@ public class Practical1to9 {
             }*/
 	
             //practicle 8
-          /*String p8="select *from emp where salary=(select MAX(salary) from emp)";
+          /*String p8="select *from emp1 where salary=(select MAX(salary) from emp1)";
             ResultSet rs=st.executeQuery(p8);
               System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
 
