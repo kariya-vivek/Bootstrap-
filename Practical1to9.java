@@ -37,66 +37,51 @@ public class Practical1to9 {
             st.executeUpdate(r10);*/
             
            /* String p2="select * from emp1";
-            ResultSet rs=st.executeQuery(p2);
-            while(rs.next())
-            {
-		System.out.println("empno:"+rs.getInt(1));
-		System.out.println("empnm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }*/
+              ResultSet rs=st.executeQuery(p2);
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
             
             /*String p3="select * from emp1 where salary>50000";
-            ResultSet rs=st.executeQuery(p3);
-            while(rs.next())
-            {
-            	System.out.println("empno:"+rs.getInt(1));
-		System.out.println("empnm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }*/
+              ResultSet rs=st.executeQuery(p3);
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
             
             /*String p4="select * from emp1 where city='rajkot'";
             ResultSet rs=st.executeQuery(p4);
-            while(rs.next())
-            {
-		System.out.println("empno:"+rs.getInt(1));
-		System.out.println("empnm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }*/
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
             
             //practicle 5
             /*String p2="select * from emp1 where empnm like 'a%'";
             ResultSet rs=st.executeQuery(p2);
-            while(rs.next())
-            {
-            	System.out.println("emp1no:"+rs.getInt(1));
-		System.out.println("emp1nm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }*/
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
 	
             //practicle 6
             /*String p6="select * from emp1 where designation like'%manager'";
-            ResultSet rs=st.executeQuery(p6);
-            while(rs.next())
-            {
-		System.out.println("emp1no:"+rs.getInt(1));
-		System.out.println("emp1nm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }*/
+            ResultSet rs=st.executeQuery(p2);
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
 	
             //practicle 7
             /*String p7="select count(*) from emp1 ";
@@ -107,26 +92,24 @@ public class Practical1to9 {
             }*/
 	
             //practicle 8
-          /*String p8="select max(salary) from emp1 ";
-            ResultSet rs=st.executeQuery(p8);
-            while(rs.next())
-            {
-		System.out.println("maxsalary:"+rs.getInt(1));
-            }*/
+          /*select *from emp where salary=(select MAX(salary) from emp);
+            ResultSet rs=st.executeQuery(p2);
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+             }*/
 	
             //practicle 9
             String p9="select * from emp1 order by empnm";
-            ResultSet rs=st.executeQuery(p9);
-            while(rs.next())
-            {
-		System.out.println("empno:"+rs.getInt(1));
-		System.out.println("empnm:"+rs.getString(2));
-		System.out.println("designation:"+rs.getString(3));
-		System.out.println("city:"+rs.getString(4));
-		System.out.println("salary:"+rs.getInt(5));
-		System.out.println("department:"+rs.getString(6));
-            }
-	
+            ResultSet rs=st.executeQuery(p2);
+              System.out.println("empno\tempnm\tdesignation\tcity\tsalary\tdepartment");
+
+              while(rs.next())
+             {
+                   System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6));
+	     }
         }
         catch(Exception e)
         {
