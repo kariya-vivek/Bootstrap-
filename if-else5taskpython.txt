@@ -1,0 +1,37 @@
+#perform five task using if-else statment
+
+#leap year
+y=int(input("enter any year"))
+if(y%4==0):
+  print("year is leap")
+else:
+  print("not leap year")
+  
+#voting
+a=int(input("enter your age"))
+if(a>=18):
+  print("eligible")
+else:
+  print("noot eligible")
+  
+#check number is positive or negative
+a=int(input("enter any number"))
+if(a>=0):
+  print("positive number")
+else:
+  print("negative number")
+
+#ticket
+a=int(input("enter your age"))
+if(a<15):
+  print("your ticket is 10 rs")
+else:
+  print("your ticket is 50 rs")
+
+#equality
+a=int(input("enter value1"))
+b=int(input("enter value 2"))
+if(a==b):
+  print("both are same")
+else:
+  print("both are not same")
