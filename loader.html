@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>task 1</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<style>
+			.loader
+			{
+				background-image:url('1488.gif');
+			    background-repeat: no-repeat;
+				background-position: center; 	
+			}
+		</style>
+	</head >
+	<body class="loader">
+		<div  id="main" style="display:none">
+			<button id="hmbtn">home</button>
+			<button id="newbtn">new</button>
+			<div id="homep">welcome to home page</div>
+			<div id="newp">welcome to new category page</div>
+		</div>
+		<script>
+		$(document).ready(function (){
+			setTimeout(function (){
+				$("body").removeClass("loader");
+				$("#main").show();
+			},3000);
+		});
+		</script>
+	</body>
+</html>
+
