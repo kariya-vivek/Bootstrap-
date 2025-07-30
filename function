@@ -1,0 +1,72 @@
+from array  import *
+a=array('i',[3,4,5,6,7])
+for i in a:
+  print(i)
+  
+#unicode
+# College name in Gujarati using Unicode
+colnm = u'\u0a95\u0aae\u0abe\u0aa8\u0ac0 \u0ab8\u0abe\u0a87\u0a82\u0ab8 \u0a85\u0aa8\u0ac7 \u0aaa\u0acd\u0ab0\u0aa4\u0abe\u0aaa\u0ab0\u0abe\u0a88 \u0a86\u0ab0\u0acd\u0a9f\u0acd\u0ab8 \u0a95\u0acb\u0ab2\u0ac7\u0a9c, \u0a85\u0aae\u0ab0\u0ac7\u0ab2\u0ac0'
+print(colnm)
+
+# Name in Gujarati using Unicode
+name = u'\u0a95\u0abe\u0ab0\u0abf\u0aaf\u0abe \u0ab5\u0abf\u0ab5\u0ac7\u0a95 \u0ab8\u0a82\u0aa4\u0acb\u0ab6\u0aad\u0abe\u0a88'
+print(name)
+
+#using function check year is leap or not
+def year1(y):
+  if y%4==0:
+    return "leap"
+  else:
+    return "not leap"
+ans=year1(2004)
+print(ans)
+
+#return multiple value 
+
+def fun1(a,b):
+  c=a+b
+  d=a-b
+  e=a*b
+  f=a/b
+  return c,d,e,f
+t=fun1(60,40)
+print(t)
+
+#assigning to function
+def display(str):
+  return 'welcome'+str
+x=display("to ksc")
+print(x)
+
+#actual argument
+def attach(s1,s2):
+  s3=s1+s2
+  print("total string:"+s3)
+attach("new","york")
+
+#keyword argument
+print("keyword argument")
+def gro(item,price):
+  print("item=",item)
+  print("price=",price)
+gro(item="sugar",price=48.50)
+gro(price=88.50,item="oil")
+
+#default argument
+print("default argument")
+def gro(item,price=100):
+  print("item=",item)
+  print("price=",price)
+gro(item="sugar")
+gro(price=88.50,item="oil")
+
+#length argument
+print("length argument")
+def add(farg,*args):
+  print("formal arguments=",farg)
+  sum=50
+  for i in args:
+    sum+=i
+  print("sum of all numbers=",(farg+sum))
+add(50,60,70)
+add(14,56,7,8,4,56,7)
