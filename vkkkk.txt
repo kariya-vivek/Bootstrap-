@@ -1,0 +1,29 @@
+else if ($_GET['category'] == "trend") {
+    $query = "SELECT productid, SUM(quantity) AS total_quantity 
+              FROM craftorder
+              WHERE ordertime >= NOW() - INTERVAL 30 DAY 
+              GROUP BY productid 
+              ORDER BY total_quantity DESC 
+              LIMIT 10";
+
+    $result = mysqli_query($con, $query); 
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $productid = $row['productid'];
+
+            $query11 = "SELECT * FROM product_table WHERE product_id = '$productid'";
+            $result11 = mysqli_query($con, $query11);
+
+            if ($result11 && mysqli_num_rows($result11) > 0) {
+                while ($row11 = mysqli_fetch_assoc($result11)) {
+                    displayProduct($row11);
+                }
+            } else {
+                echo "Product details not found for product ID: $productid<br>";
+            }
+        }
+    } else {
+        echo "No trending products found or query failed: " . mysqli_error($con);
+    }
+}
